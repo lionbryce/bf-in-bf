@@ -1,0 +1,154 @@
+,
+  #+####+@@@@@ setup pointer tracks
+  
+  [ 
+    ------------------------------------------- 43 increment
+    [#]# check if it matches
+    [
+      move back to cell one
+      [<]>
+      find the right memory slot
+      ####[>]@<
+      +
+      get back to cell one
+      #[<]>
+      get back to where we were in input
+      @@@@[>]<
+      ##
+    ]@@@
+    
+    - 44 stdin
+    [#]#[
+      [<]>####[>]@<
+      
+      ,
+      
+      #[<]>@@@@[>]<##
+    ]@@@
+    
+    - 45 decrement
+    [#]#[
+      [<]>####[>]@<
+      
+      - decrement
+      
+      #[<]>@@@@[>]<##
+    ]@@@
+    
+    - 46 print
+    [#]#[
+      [<]>####[>]@<
+      
+      ? print then num
+      
+      #[<]>@@@@[>]<##
+    ]@@@
+    
+    -------------- 60 left
+    [#]#[
+      [<]>####[>]@<
+      
+      #-<@
+      
+      #[<]>@@@@[>]<##
+    ]@@@
+    
+    -- 62 right
+    [#]#[
+      [<]>####[>]@<
+      
+      #>+@
+      
+      #[<]>@@@@[>]<##
+    ]@@@
+    
+    ----------------------------- 91 startloop
+    [#]#[
+    
+      assume value is zero and increment loop ahead
+      [<]>####
+      ##+@@
+      
+      back to curval
+      [>]<@
+      
+      if value is nonzero do
+      [
+        [<]> back to cell one of value
+        @@@[>]< to latest tape
+        
+        setup loop markers this leaves us at row two cell one
+        [#####+@@@@@<]>
+        
+        ######- can decrement the loop ahead byte
+        
+        and back to row four
+        @@@@
+      ]
+      
+      @@[#]@ more realligning tricks
+      [>]<##
+    ]@@@
+    
+    -- 93 endloop
+    [#]#[
+    
+      restore this value
+      might have to only do this if we have a nonzero in curval
+      @+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++#
+      
+      [<]>
+      #### get to curval to see if we should loop back
+      [>]<@
+      
+      if nonzero value
+      [
+        [<]>##
+        
+        [ if there is a spot to return to
+          [->]<
+          @@@@@
+          [-]>[>]<[-<]< move input head back
+          #####
+        ]
+        
+        @@@
+      ]
+      @@[#]@ realligning trick
+      [>]<
+      prep this value to be restored to its original
+      @---------------------------------------------------------------------------------------------#
+      
+      ##
+    ]@@@
+    
+    #[>]<@
+    restore original value
+    +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 93
+    
+    #>[-]+@
+    [#]#[@,###]@@@
+    
+    check if we need to be skipping ahead
+    #[<]>######
+    
+    [
+      need to skip stuff
+      @@@@@@[>]+@
+      ,
+      --------------------------------------------------------------------------------------------- 93
+      [#]#
+      [ if we found an end loop
+        [<]>######-@@@@@@[>]<@
+        #>[-]+<@
+        ###
+      ]@@@
+      +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 93
+      
+      #[<]>###### back to the skip byte
+    ]
+    
+    and back to the next instruction
+    @@@@@@[>]<@
+  ]
+\
