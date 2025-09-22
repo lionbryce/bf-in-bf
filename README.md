@@ -1,3 +1,6 @@
+Apologies if this readme is a mess, I wrote it write before bed a few days ago and have not reviewed it since.
+The actual program is reasonably commented (at least well enough that I could look at it a week later and diagnose a bug)
+
 ## Background
 
 I got kinda bored one day and started playing around with writing my own "fancy" bf interpreter.
@@ -70,4 +73,3 @@ Since we're moving the input pointer we also need to make sure that we add/subtr
 ## TODO
 
 Check a couple other edge cases
-Remember that I forgot to have it increment the skip byte again after it reads a `[` when skipping ahead
